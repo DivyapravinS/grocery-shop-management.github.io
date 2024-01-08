@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Website - Products</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="#">Grocery Store</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="above.html">About</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="product.html">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Products</h2>
+        <h4>Categories:</h4>
+        <!-- Labels -->
+        <div class="row ">
+            <div class="container">
+                <span class="  label badge-primary">Fruits</span>
+                <span class=" label badge-success">Vegetables</span>
+                <span class=" label badge-info">Dairy</span>
+            </div>
+        </div>
+        <!-- Tables -->
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <h4>Available Products:</h4>
+
+                <!-- Add a search input field for filtering products -->
+                <input type="text" id="productFilter" class="form-control mt-3" placeholder="Search for a product">
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Product Name</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Apple</td>
+                            <td>Fruits</td>
+                            <td>$1.00</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Carrot</td>
+                            <td>Vegetables</td>
+                            <td>$0.50</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Milk</td>
+                            <td>Dairy</td>
+                            <td>$9.50</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>MANGO</td>
+                            <td>fruit</td>
+                            <td>$6.50</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>orange</td>
+                            <td>fruit</td>
+                            <td>$3.50</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>butter</td>
+                            <td>Dairy</td>
+                            <td>$2.60</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <!-- Buttons -->
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col text-center">
+                    <a href="shopnow.html" class="btn btn-primary">Shop Now</a>
+                    <a href="learnmore.html" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- jQuery filter script -->
+    <script>
+        $(document).ready(function () {
+            $("#productFilter").on("keyup", function () {
+                var searchText = $(this).val().toLowerCase();
+
+                // Loop through each table row
+                $("table tbody tr").each(function () {
+                    var productRow = $(this);
+                    var productName = productRow.find("td:eq(1)").text().toLowerCase();
+
+                    if (productName.indexOf(searchText) === -1) {
+                        productRow.hide();
+                    } else {
+                        productRow.show();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
+

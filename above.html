@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Website - Above</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="#">Grocery Store</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="above.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="product.html">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col-md-8">
+                    <h2>Grocery Store Above</h2>
+                    <p>
+                        <!-- This is where the content will be dynamically loaded based on the user's action -->
+                        Click the button to load additional content.
+                    </p>
+                    <!-- Button to load additional content -->
+                    <button class="btn btn-primary load-content">Load More</button>
+                    <!-- Container to display the loaded content -->
+                    <div class="additional-content mt-3"></div>
+                </div>
+                <div class="col-md-4">
+                    <img src="grocery1.jpg" class="img-fluid rounded" alt="Grocery Store">
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <!-- Buttons -->
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col text-center">
+                    <a href="shopnow.html" class="btn btn-primary">Shop Now</a>
+                    <a href="learnmore.html" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Event listener for the "Load More" button
+            $(".load-content").click(function () {
+                // Define the text content you want to display
+                var additionalText = "We deliver to 25 cities across India and maintain excellent delivery times, ensuring that all your products from groceries to snacks branded foods reach you in time.Slotted Delivery: Pick the most convenient delivery slot to have your grocery delivered. From early morning delivery for early birds, to late-night delivery for people who work the late shift, bigbasket caters to every schedule Express Delivery: This super useful service can be availed by customers in cities like Bangalore, Mumbai, Pune, Chennai, Kolkata, Hyderabad and Delhi-NCR in which we deliver your orders to your doorstep in 90 Minutes BB Speciality stores: Missed out on buying that essential item from your favourite neighbourhood store for tonight’s party? We’ll deliver it for you! From bakery, sweets and meat to flowers and chocolates, we deliver your order in 90 minutes, through a special arrangement with a nearby speciality store, verified by us";
+
+                // Append the predefined text content to the page
+                $(".additional-content").append("<p>" + additionalText + "</p>");
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grocery Website - Contact</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="#">Grocery Store</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="above.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="product.html">Products</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="contactas.html">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container mt-4">
+            <h2>Contact Us</h2>
+
+            <!-- Badges -->
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h4>Contact Options:</h4>
+                    <span class="badge badge-primary">Email</span>
+                    <span class="badge badge-success">Phone</span>
+                    <span class="badge badge-info">Chat</span>
+                </div>
+            </div>
+
+            <!-- Tabs -->
+            <div class="row mt-4">
+                <div class="col-md-12">
+                    <h4>Send Us a Message:</h4>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="email-tab" data-toggle="tab" href="#email" role="tab"
+                                aria-controls="email" aria-selected="true">Email</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="phone-tab" data-toggle="tab" href="#phone" role="tab"
+                                aria-controls="phone" aria-selected="false">Phone</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="chat-tab" data-toggle="tab" href="#chat" role="tab"
+                                aria-controls="chat" aria-selected="false">Chat</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="email" role="tabpanel" aria-labelledby="email-tab">
+                            <form id="emailForm">
+                                <div class="form-group">
+                                    <label for="emailAddress">Email Address:</label>
+                                    <input type="email" class="form-control" id="emailAddress" placeholder="Enter your email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Message:</label>
+                                    <textarea class="form-control" id="message" rows="4" placeholder="Enter your message"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Send Email</button>
+                            </form>
+                            <div class="alert alert-success mt-3" id="emailSuccess" style="display: none;">
+                                Email sent successfully!
+                            </div>
+                            <div class="alert alert-danger mt-3" id="emailError" style="display: none;">
+                                Email sending failed. Please try again later.
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="phone" role="tabpanel" aria-labelledby="phone-tab">
+                            <form id="phoneForm">
+                                <div class="form-group">
+                                    <label for="phoneNumber">Phone Number:</label>
+                                    <input type="tel" class="form-control" id="phoneNumber" placeholder="Enter your phone number">
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Message:</label>
+                                    <textarea class="form-control" id="message" rows="4" placeholder="Enter your message"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-success">Call Us</button>
+                            </form>
+                            <div class="alert alert-success mt-3" id="phoneSuccess" style="display: none;">
+                                Phone call initiated successfully!
+                            </div>
+                            <div class="alert alert-danger mt-3" id="phoneError" style="display: none;">
+                                Phone call initiation failed. Please try again later.
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="chat" role="tabpanel" aria-labelledby="chat-tab">
+                            <div class="alert alert-info" role="alert">
+                                Chat support is currently offline. Please try again later.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Buttons -->
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col text-center">
+                    <a href="shopnow.html" class="btn btn-primary">Shop Now</a>
+                    <a href="learnmore.html" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            // Handle form submission
+            $('#email-form').submit(function(event) {
+                event.preventDefault(); // Prevent the form from submitting via the browser
+
+                // Serialize form data
+                var formData = $(this).serialize();
+
+                // Send an AJAX POST request to the server
+                $.ajax({
+                    type: 'POST',
+                    url: 'data.php', // Replace with the actual server-side script URL
+                    data: formData,
+                    success: function(response) {
+                        // Display a success message on the web page
+                        $('#email-response').html('<div class="alert alert-success">' + response + '</div>');
+                    },
+                    error: function() {
+                        // Display an error message on the web page
+                        $('#email-response').html('<div class="alert alert-danger">An error occurred. Please try again later.</div>');
+                    }
+                });
+            });
+        });
+
+
+</script>
+</body>
+
+</html>
